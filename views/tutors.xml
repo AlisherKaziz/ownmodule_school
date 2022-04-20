@@ -1,16 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
-    <record id="tutor_tree_view" model="ir.ui.view">
-        <field name="name">school.tutor.fullname.tree</field>
-        <field name="model">school.tutor.fullname</field>
-        <field name="arch" type="xml">
-            <tree string="Tutors Full Name">
-                <field name="name"/>
-                <field name="surname"/>
-                <field name="secondname"/>
-            </tree>
-        </field>
-    </record>
 
     <record>
         <record model="ir.ui.view" id="view_tutor_session_kanban">
@@ -44,7 +33,7 @@
         <field name="model">school.tutor</field>
         <field name="arch" type="xml">
             <tree string="Tutors">
-                <field name="name"/>
+                <field name="fullname"/>
                 <field name="age"/>
                 <field name="specialization"/>
             </tree>
