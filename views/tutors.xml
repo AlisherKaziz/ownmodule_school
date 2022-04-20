@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="tutor_tree_view" model="ir.ui.view">
+        <field name="name">school.tutor.fullname.tree</field>
+        <field name="model">school.tutor.fullname</field>
+        <field name="arch" type="xml">
+            <tree string="Tutors Full Name">
+                <field name="name"/>
+                <field name="surname"/>
+                <field name="secondname"/>
+            </tree>
+        </field>
+
+    </record>
+
+    <record>
+        <record model="ir.ui.view" id="view_tutor_session_kanban">
+            <field name="name">tutor.session.kanban</field>
+            <field name="model">tutor.session</field>
+            <field name="arch" type="xml">
+                <kanban defualt_group_by="gender">
+                    <field name="gender"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div class="om_kanban_gender">
+                                <div class="om_kanban_content">
+                                    <p>Male</p>
+                                    <field name="name"/>
+                                    <br/>
+                                    <p>Female</p>
+                                    <field name="name"/>
+                                    <p>Others</p>
+                                    <field name="name"/>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+    </record>
+
+    <record id="tutor_tree_view" model="ir.ui.view">
+        <field name="name">school.tutor.tree</field>
+        <field name="model">school.tutor</field>
+        <field name="arch" type="xml">
+            <tree string="Tutors">
+                <field name="name"/>
+                <field name="age"/>
+                <field name="specialization"/>
+            </tree>
+        </field>
+
+    </record>
+
+    <record id="tutor_form_view" model="ir.ui.view">
+        <field name="name">school.tutor.form</field>
+        <field name="model">school.tutor</field>
+        <field name="arch" type="xml">
+            <form string="Tutors">
+                <sheet>
+                    <field name="image" widget="image" class="avatar"/>
+                    <group>
+                        <group>
+                            <field name="gender"/>
+                        </group>
+                        <group>
+                            <field name="subject_description"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_tutor" model="ir.actions.act_window">
+        <field name="name">Tutor</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">school.tutor</field>
+        <field name="view_mode">tree,form,kanban</field>
+        <field name="context">{}</field>
+        <field name="domain">[]</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create your Tutor Here!
+            </p>
+        </field>
+    </record>
+    <menuitem id="school_root_menu"
+              name="School"
+              web_icon="om_school,static/description/icon.png"
+              sequence="7"/>
+    <menuitem id="school_tutor_menu"
+              name="Tutors" action="action_tutor"
+              parent="school_root_menu"
+              sequence="10"/>
+</odoo>
