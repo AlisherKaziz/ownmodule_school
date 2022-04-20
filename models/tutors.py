@@ -1,4 +1,4 @@
-from odoo import fields, models
+from odoo import api, fields, models
 
 
 class SchoolTutors(models.Model):
@@ -17,14 +17,3 @@ class SchoolTutors(models.Model):
         ('other', 'Other')
     ], string='Gender', default='other')
     image = fields.Binary(string='Image')
-
-
-class SchoolTutorFullName(SchoolTutors.name, SchoolTutors.surname, SchoolTutors.secondname):
-    _name = "school.tutor.fullname"
-    _columns = {
-
-        'name': SchoolTutors.name,
-        'surname': SchoolTutors.surname,
-        'secondname': SchoolTutors.secondname
-
-    }
