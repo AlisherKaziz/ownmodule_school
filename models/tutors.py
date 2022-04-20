@@ -22,7 +22,9 @@ class SchoolTutors(models.Model):
 class SchoolTutorFullName(SchoolTutors.name, SchoolTutors.surname, SchoolTutors.secondname):
     _name = "school.tutor.fullname"
     _columns = {
+
         'name': SchoolTutors.name,
         'surname': SchoolTutors.surname,
         'secondname': SchoolTutors.secondname
+
     }
