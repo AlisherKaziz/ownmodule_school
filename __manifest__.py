@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "om_school",
+    'name': "School Tutors",
     'summary': "School Navigation Soft",
     'author': "ALisherK",
     'website': "http://www.yourcompany.com",
@@ -9,7 +9,7 @@
     'depends': [],
     'data': [
         'security/ir.model.access.csv',
-        'views/tutors.xml'
+        'views/tutors.xml',
     ],
     'demo': [],
     'installable': True,
