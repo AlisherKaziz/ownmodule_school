@@ -1,17 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
 
-    <record model="ir.ui.view" id="tutors_form_view">
-        <field name="name">school.tutor.kanban</field>
-        <field name="model">school.tutor</field>
-        <field name="arch" type="xml">
-            <kanban default_order="gender asc" default_group_by="gender">
-                <field name="fullname"/>
-                <field name="gender"/>
-            </kanban>
-        </field>
-    </record>
-
     <record id="tutors_form_view" model="ir.ui.view">
         <field name="name">school.tutor.form</field>
         <field name="model">school.tutor</field>
@@ -39,6 +28,31 @@
         </field>
     </record>
 
+    <record id="tutors_kanban_view" model="ir.ui.view">
+        <field name="name">school.tutor.kanban</field>
+        <field name="model">school.tutor</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="gender">
+                <field name="name"/>
+                <field name="surname"/>
+                <field name="gender"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="oe_kanban_global_click">
+                            <div class="oe_kanban_details">
+                                <ul>
+                                    <li>Name: <field name="name"/></li>
+                                    <li>Surname: <field name="surname"/></li>
+                                    <li>Gender: <field name="gender"/></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
     <record id="action_tutors" model="ir.actions.act_window">
         <field name="name">Tutor</field>
         <field name="type">ir.actions.act_window</field>
@@ -46,16 +60,8 @@
         <field name="view_mode">tree,form,kanban</field>
         <field name="context">{}</field>
         <field name="domain">[]</field>
-        <field name="help" type="html">
-            <p class="o_view_nocontent_smiling_face">
-                Create your Tutor Here!
-            </p>
-        </field>
     </record>
-<!--    &lt;!&ndash; This Menu Item will appear in the Upper bar, That's why It needs NO parent or action &ndash;&gt;-->
-<!--    <menuitem id="school_root_menu" name="School"/>-->
-<!--    &lt;!&ndash; This Menu Item must have a parent and an action &ndash;&gt;-->
-<!--    <menuitem id="school_tutor_root" name="Tutor" parent="school_root" action="" sequence=""/>-->
+
 
     <menuitem id="school_root_menu"
               name="School"
@@ -64,5 +70,5 @@
     <menuitem id="school_tutors_menu"
               name="Tutors" action="action_tutors"
               parent="school_root_menu"
-              sequence="2"/>
+              sequence="4"/>
 </odoo>
